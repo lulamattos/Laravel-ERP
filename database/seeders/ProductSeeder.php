@@ -10,20 +10,25 @@ class ProductSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
-    {
-        \App\Models\Product::create([
-            'name' => 'Camisa Listrada',
-            'sku' => 'CAM-123-L',
+   public function run(): void
+{
+    \DB::table('products')->insert([
+        [
+            'sku' => 'SKU-001',
+            'name' => 'Fone de Ouvido Bluetooth',
+            'price' => 250.00,
+            'stock' => 15,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ],
+        [
+            'sku' => 'SKU-002',
+            'name' => 'Mouse Wireless',
             'price' => 89.90,
-            'stock' => 50
-        ]);
-
-        \App\Models\Product::create([
-            'name' => 'Caneca Dev',
-            'sku' => 'DEV-999-C',
-            'price' => 45.00,
-            'stock' => 100
-        ]);
-    }
+            'stock' => 20,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]
+    ]);
+}
 }
